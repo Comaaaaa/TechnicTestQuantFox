@@ -289,4 +289,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ for efficient expense tracking**
+**Made with heart for efficient expense tracking and QuantFox Team**
