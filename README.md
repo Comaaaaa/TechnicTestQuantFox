@@ -147,4 +147,4 @@ docker-compose up --build -d
 
 ---
 
-**Made with hear for QuantFox Team**
+**Made with heart for QuantFox Team**
