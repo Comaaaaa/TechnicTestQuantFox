@@ -1,0 +1,24 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $font-family-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: $text-primary;
+  background: $dark-gradient;
+}
+
+// Global styles for custom components

@@ -1,0 +1,81 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.chartContainer {
+  @include card-glass;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-lg;
+}
+
+.chartHeader {
+  @include flex-center;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+
+  h2 {
+    margin: 0;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+  }
+}
+
+.chartControls {
+  display: flex;
+  gap: $spacing-xs;
+  background: rgba(255, 255, 255, 0.05);
+  padding: $spacing-xs;
+  border-radius: $border-radius-lg;
+}
+
+.chartButton {
+  @include button-base;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  background: transparent;
+  color: $text-secondary;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: $text-primary;
+  }
+
+  &.active {
+    @include glass-effect($glass-bg-active, $glass-border-active);
+    color: $text-primary;
+  }
+}
+
+.chartWrapper {
+  position: relative;
+  height: 400px;
+
+  canvas {
+    max-height: 100%;
+  }
+}
+
+.noData {
+  @include flex-center;
+  height: 300px;
+  color: $text-secondary;
+  font-size: $font-size-lg;
+  text-align: center;
+}
+
+@include mobile {
+  .chartHeader {
+    flex-direction: column;
+    gap: $spacing-md;
+    align-items: stretch;
+  }
+
+  .chartControls {
+    justify-content: center;
+  }
+
+  .chartWrapper {
+    height: 300px;
+  }
+}

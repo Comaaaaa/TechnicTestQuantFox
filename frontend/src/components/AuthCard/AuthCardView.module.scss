@@ -1,0 +1,86 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.authCard {
+  padding: $spacing-2xl;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.tabContainer {
+  display: flex;
+  margin-bottom: $spacing-2xl;
+  gap: 0;
+}
+
+.tabButton {
+  @include button-base;
+  flex: 1;
+  @include glass-effect;
+  color: $text-primary;
+
+  &:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+  }
+
+  &:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+
+  &.active {
+    @include glass-effect($glass-bg-active, $glass-border-active);
+  }
+
+  &:hover:not(:disabled) {
+    @include glass-effect($glass-bg-active, $glass-border-active);
+  }
+}
+
+.errorMessage {
+  background: $error-bg;
+  border: 1px solid $error-border;
+  color: $error-text;
+  padding: $spacing-sm;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-lg;
+  backdrop-filter: blur(10px);
+}
+
+.form {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: $spacing-sm;
+}
+
+.switchTab {
+  margin-top: $spacing-lg;
+  text-align: center;
+
+  .switchText {
+    color: $text-secondary;
+    font-size: $font-size-sm;
+
+    .switchLink {
+      color: $text-primary;
+      font-weight: $font-weight-semibold;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color $transition-normal;
+
+      &:hover {
+        color: $text-secondary;
+      }
+    }
+  }
+}

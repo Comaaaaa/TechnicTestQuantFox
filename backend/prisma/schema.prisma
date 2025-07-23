@@ -1,0 +1,35 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  username String   @unique
+  password String
+  expenses Expense[]
+}
+
+enum Category {
+  FOOD
+  TRAVEL
+  OFFICE
+  SHOPPING
+  INVESTMENTS
+  OTHER
+}
+
+model Expense {
+  id        Int      @id @default(autoincrement())
+  amount    Float
+  note      String?
+  createdAt DateTime @default(now())
+  category  Category
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+}

@@ -1,0 +1,28 @@
+services:
+  db-expense:
+    image: postgres:13-bookworm
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: nest
+    networks:
+      - backendnet
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    environment:
+      DATABASE_URL: postgres://postgres:root@db-expense:5432/nest
+      HOST: 0.0.0.0
+    ports:
+      - 8080:8080
+    depends_on:
+      - db-expense
+    networks:
+      - backendnet
+
+networks:
+  backendnet: 

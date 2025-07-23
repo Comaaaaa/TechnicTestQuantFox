@@ -1,0 +1,10 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.loginPage {
+  @include flex-center;
+  min-height: 100vh;
+  background: $dark-gradient;
+  padding: $spacing-md;
+}
+ 

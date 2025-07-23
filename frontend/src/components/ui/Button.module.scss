@@ -1,0 +1,58 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Local spinner animation
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.button {
+  @include button-glass;
+
+  &.primary {
+    @include button-glass;
+  }
+
+  &.secondary {
+    @include button-base;
+    background: rgba(107, 114, 128, 0.2);
+    color: $text-primary;
+
+    &:hover:not(:disabled) {
+      background: rgba(107, 114, 128, 0.3);
+      transform: translateY(-1px);
+    }
+  }
+
+  &.small {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+  }
+
+  &.medium {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-base;
+  }
+
+  &.large {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-lg;
+  }
+
+  &.loading {
+    .spinner {
+      animation: spin 1s linear infinite;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: $spacing-sm;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+    }
+  }
+}

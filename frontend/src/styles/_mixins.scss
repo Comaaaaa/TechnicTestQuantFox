@@ -1,0 +1,117 @@
+@use 'variables' as *;
+
+// Glassmorphism effect
+@mixin glass-effect($bg: $glass-bg, $border: $glass-border) {
+  background: $bg;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid $border;
+  box-shadow: $shadow-glass;
+}
+
+// Button base styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $border-radius-xl;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-normal;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Glass button
+@mixin button-glass {
+  @include button-base;
+  @include glass-effect;
+  color: $text-primary;
+
+  &:hover:not(:disabled) {
+    @include glass-effect($glass-bg-active, $glass-border-active);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Input styles
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-xl;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  transition: all $transition-normal;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+  }
+}
+
+// Glass input
+@mixin input-glass {
+  @include input-base;
+  @include glass-effect;
+  color: $text-primary;
+  border: 1px solid $glass-border;
+
+  &:focus {
+    border-color: $glass-border-active;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Card styles
+@mixin card-glass {
+  @include glass-effect;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-card;
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive breakpoints
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+ 
