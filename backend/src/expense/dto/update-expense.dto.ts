@@ -1,6 +1,6 @@
 import { IsNumber, IsOptional, IsString, IsEnum, IsISO8601 } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { Category } from '../create-expense.dto/create-expense.dto';
+import { Category } from './create-expense.dto';
 
 export class UpdateExpenseDto {
   /** Updated amount (optional) */

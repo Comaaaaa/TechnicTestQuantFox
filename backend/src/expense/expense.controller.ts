@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body, Param, Delete, Req, Put, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiParam, ApiBody, ApiResponse } from '@nestjs/swagger';
 import { ExpenseService } from './expense.service';
-import { CreateExpenseDto } from './dto/create-expense.dto/create-expense.dto';
-import { UpdateExpenseDto } from './dto/update-expense.dto/update-expense.dto';
+import { CreateExpenseDto } from './dto/create-expense.dto';
+import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { ForbiddenException, UnauthorizedException } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 

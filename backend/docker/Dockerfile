@@ -32,6 +32,7 @@ RUN npm ci --only=production --quiet
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY prisma ./prisma
+COPY --from=builder /app/prisma/migrations ./prisma/migrations
 
 # Generate Prisma client in production environment
 RUN npx prisma generate
@@ -51,4 +52,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
   CMD curl -f http://localhost:8080 || exit 1
 
 # Wait for database and start application
-CMD sh -c "while ! nc -z postgres 5432; do sleep 1; done && npx prisma migrate deploy && npm run start:prod"
+CMD sh -c "while ! nc -z postgres 5432; do sleep 1; done && npx prisma migrate deploy || npx prisma migrate dev --name init && npm run start:prod"
