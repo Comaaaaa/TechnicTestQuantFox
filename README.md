@@ -66,14 +66,14 @@ A modern, full-stack expense tracking application built with Next.js and NestJS,
 1. **Clone the repository**
 
 ```bash
-git clone <repository-url>
+git clone git@github.com:Comaaaaa/TechnicTestQuantFox.git
 cd TechnicTestQuantFox
 ```
 
 2. **Start all services**
 
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 
 3. **Access the application**
@@ -81,108 +81,6 @@ docker-compose up -d
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:8080
 - API Documentation: http://localhost:8080/api
-
-### 🔧 Manual Setup
-
-#### Backend Setup
-
-1. **Navigate to backend directory**
-
-```bash
-cd backend
-```
-
-2. **Install dependencies**
-
-```bash
-npm install
-```
-
-3. **Set up environment variables**
-
-```bash
-cp .env.example .env
-# Edit .env with your database credentials
-```
-
-4. **Configure database**
-
-```bash
-# Generate Prisma client
-npx prisma generate
-
-# Run database migrations
-npx prisma migrate deploy
-
-# (Optional) Seed database
-npx prisma db seed
-```
-
-5. **Start the backend server**
-
-```bash
-# Development mode
-npm run start:dev
-
-# Production mode
-npm run build
-npm run start:prod
-```
-
-#### Frontend Setup
-
-1. **Navigate to frontend directory**
-
-```bash
-cd frontend
-```
-
-2. **Install dependencies**
-
-```bash
-npm install
-```
-
-3. **Set up environment variables**
-
-```bash
-cp .env.local.example .env.local
-# Edit .env.local with your API URL
-```
-
-4. **Start the frontend server**
-
-```bash
-# Development mode
-npm run dev
-
-# Production mode
-npm run build
-npm run start
-```
-
-## 📝 Environment Variables
-
-### Backend (.env)
-
-```bash
-# Database
-DATABASE_URL="postgresql://username:password@localhost:5432/expense_tracker"
-
-# JWT
-JWT_SECRET="your-super-secret-jwt-key"
-
-# Server
-PORT=8080
-HOST=0.0.0.0
-```
-
-### Frontend (.env.local)
-
-```bash
-# API Configuration
-NEXT_PUBLIC_API_URL=http://localhost:8080
-```
 
 ## 🏗️ Project Structure
 
@@ -231,55 +129,15 @@ TechnicTestQuantFox/
 
 Visit http://localhost:8080/api for interactive Swagger documentation.
 
-## 🧪 Testing
-
-### Backend Tests
-
-```bash
-cd backend
-npm run test          # Unit tests
-npm run test:e2e      # End-to-end tests
-npm run test:cov      # Coverage report
-```
-
-### Frontend Tests
-
-```bash
-cd frontend
-npm run test          # Jest tests
-npm run test:watch    # Watch mode
-```
-
 ## 🚢 Deployment
 
-### Docker Production Deployment
+### Docker Deployment
 
 ```bash
 # Build and start production containers
-docker-compose -f docker-compose.prod.yml up -d
+docker-compose up --build -d
 
-# Scale services
-docker-compose up -d --scale frontend=3 --scale backend=2
 ```
-
-### Manual Production Deployment
-
-1. Build both applications
-2. Set up PostgreSQL database
-3. Configure environment variables
-4. Deploy to your preferred hosting platform
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -289,4 +147,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with heart for efficient expense tracking and QuantFox Team**
+**Made with hear for QuantFox Team**
